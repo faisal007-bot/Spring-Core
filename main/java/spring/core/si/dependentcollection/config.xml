@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:context="http://www.springframework.org/schema/context" 
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+	http://www.springframework.org/schema/beans/spring-beans-3.2.xsd 
+	http://www.springframework.org/schema/context 
+	http://www.springframework.org/schema/context/spring-context-3.2.xsd  
+	http://www.springframework.org/schema/tx 
+	http://www.springframework.org/schema/tx/spring-tx-3.2.xsd">
+	
+	<bean class="spring.core.si.dependentcollection.Address" name="a1">
+		<property name="city" value="mumbai"/>
+		<property name="country" value="india"/>
+	</bean>
+	<bean class="spring.core.si.dependentcollection.Address" name="a2">
+		<property name="city" value="chennai"/>
+		<property name="country" value="india"/>
+	</bean>
+	<bean class="spring.core.si.dependentcollection.Address" name="a3">
+		<property name="city" value="delhi"/>
+		<property name="country" value="india"/>
+	</bean>
+	<bean class="spring.core.si.dependentcollection.Address" name="a4">
+		<property name="city" value="shimla"/>
+		<property name="country" value="india"/>
+	</bean>
+	
+	<bean class="spring.core.si.dependentcollection.PhoneNumber" name="p1">
+		<property name="number" value="4683348"/>
+	</bean>
+	<bean class="spring.core.si.dependentcollection.PhoneNumber" name="p2">
+		<property name="number" value="472"/>
+	</bean>
+	<bean class="spring.core.si.dependentcollection.PhoneNumber" name="p3">
+		<property name="number" value="563"/>
+	</bean>
+	<bean class="spring.core.si.dependentcollection.PhoneNumber" name="p4">
+		<property name="number" value="13237"/>
+	</bean>
+	
+	<bean class="spring.core.si.dependentcollection.Student" name="s1">
+		<property name="id" value="4"/>
+		<property name="name" value="faisal"/>
+		<property name="addresses">
+		<!-- for list dependent objects -->
+			<!-- <list>
+				<ref bean="a1"/>
+				<ref bean="a2"/>
+				<ref bean="a3"/>
+				<ref bean="a4"/>
+			</list> -->
+			
+			<!-- for set dependent objects -->
+			<set>
+				<ref bean="a1"/>
+				<ref bean="a2"/>
+				<ref bean="a3"/>
+				<ref bean="a4"/>
+			</set>
+		</property>
+		<property name="details">
+			<map>
+				<entry key-ref="a1" value-ref="p1"/>
+				<entry key-ref="a2" value-ref="p2"/>
+				<entry key-ref="a3" value-ref="p3"/>
+				<entry key-ref="a4" value-ref="p4"/>
+			</map>
+		</property>
+	</bean>
+</beans>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:context="http://www.springframework.org/schema/context" 
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+	http://www.springframework.org/schema/beans/spring-beans-3.2.xsd 
+	http://www.springframework.org/schema/context 
+	http://www.springframework.org/schema/context/spring-context-3.2.xsd  
+	http://www.springframework.org/schema/tx 
+	http://www.springframework.org/schema/tx/spring-tx-3.2.xsd">
+	
+	<bean class="spring.core.si.dependentobject.Address" name="a1">
+		<property name="city" value="morocco"/>
+		<property name="country" value="africa"/>
+	</bean>
+	<bean class="spring.core.si.dependentobject.Student" name="s1">
+		<property name="id" value="3"/>
+		<property name="name" value="faiz"/>
+		<!-- using ref attribute to prvode the reference of the dependent object -->
+		<property name="address" ref="a1">
+		<!-- using ref tag for adding reference of dependent object -->
+			<!-- <ref bean="a1"/> -->
+		</property>
+	</bean>
+	
+</beans>

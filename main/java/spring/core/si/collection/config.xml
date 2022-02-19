@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:context="http://www.springframework.org/schema/context" 
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+	http://www.springframework.org/schema/beans/spring-beans-3.2.xsd 
+	http://www.springframework.org/schema/context 
+	http://www.springframework.org/schema/context/spring-context-3.2.xsd  
+	http://www.springframework.org/schema/tx 
+	http://www.springframework.org/schema/tx/spring-tx-3.2.xsd">
+	
+	<bean class="spring.core.si.collection.Student" name="s">
+		<property name="friends">
+			<list>
+				<value>faisal</value>
+				<value>faiz</value>
+				<value>deadeye</value>
+				<value>cipher</value>
+				<null/>
+			</list>
+		</property>
+		<property name="rollnumber">
+			<set>
+				<value>56</value>
+				<value>66</value>
+				<value>586</value>
+				<value>56</value>
+				<value>51</value>
+			</set>
+		</property>
+		<property name="record">
+			<map key-type="java.lang.Integer" value-type="java.lang.String">
+				<entry key="45" value="faisal"/>
+				<entry key="42" value="null"/>
+				<entry key="453" value="cipher"/>
+				<entry key="4455" value="electronic"/>
+			</map>
+		</property>
+	</bean>
+	
+</beans>
